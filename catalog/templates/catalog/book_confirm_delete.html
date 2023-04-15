@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% if user.is_staff %}
+<h1>Delete Book</h1>
+
+<p>Are you sure you want to delete the book: {{ book }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete." />
+</form>
+{% else %}
+<h2><strong>You don't have access to this page</strong></h2>
+{% endif %}
+
+{% endblock %}
